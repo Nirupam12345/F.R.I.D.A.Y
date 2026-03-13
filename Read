@@ -1,0 +1,151 @@
+# F.R.I.D.A.Y — Personal AI Assistant
+> *"Hello sir. Friday online. All systems nominal."*
+
+A fully local, voice-controlled AI assistant inspired by Tony Stark's F.R.I.D.A.Y, built in Python. Runs completely offline with no API costs using Ollama. Includes a phone interface accessible from your Android browser.
+
+![Version](https://img.shields.io/badge/version-7.0-gold)
+![Python](https://img.shields.io/badge/python-3.11-blue)
+![License](https://img.shields.io/badge/license-MIT-green)
+
+---
+
+## Features
+
+- 🎙️ **Wake word detection** — Say "Friday" to wake her up (Porcupine or Google fallback)
+- 🧠 **Local AI brain** — Powered by Ollama (llama3.2:3b), completely free and offline
+- 🗣️ **British male voice** — Edge TTS with en-GB-RyanNeural
+- 🎵 **Music control** — Spotify, YouTube Music, or local files
+- 📱 **Phone interface** — Control Friday from your Android browser on the same WiFi
+- 📲 **ADB app launcher** — Open any app on your Android phone by voice
+- 🖼️ **Image sharing** — Send photos from phone to Friday
+- 🌤️ **Live weather** — OpenWeatherMap integration
+- ⏰ **Reminders & timers** — Voice-set countdowns
+- 🧠 **Memory system** — Remembers your last 100 conversations
+- 💬 **WhatsApp** — Open and send messages by voice
+- 🖥️ **Desktop UI** — Live conversation interface in the browser
+- 📊 **System monitoring** — CPU, RAM, disk stats in the UI
+
+---
+
+## Project Structure
+
+```
+Jarvis/
+│
+├── friday.py          # Main assistant — all logic lives here
+├── phone_ui.html      # Mobile web interface (open on phone browser)
+├── friday_ui.html     # Desktop UI (auto-opens on startup)
+├── friday_status.json # Live state shared between Python and UI
+├── friday_memory.json # Conversation memory (auto-generated)
+├── friday_prefs.json  # User preferences (auto-generated)
+└── phone_uploads/     # Images sent from phone (auto-generated)
+```
+
+---
+
+## Requirements
+
+### System
+- Windows 10/11
+- Python 3.11+
+- [Ollama](https://ollama.com) installed
+- [Android Platform Tools](https://developer.android.com/tools/releases/platform-tools) (for ADB phone app launching)
+
+### Python packages
+```bash
+pip install speechrecognition pyaudio pygame edge-tts pvporcupine psutil pyautogui requests flask flask-cors
+```
+
+---
+
+## Setup
+
+### 1. Clone the repo
+```bash
+git clone https://github.com/YOUR_USERNAME/friday-ai.git
+cd friday-ai
+```
+
+### 2. Install Ollama and pull the model
+```bash
+# Download Ollama from https://ollama.com then:
+ollama pull llama3.2:3b
+```
+
+### 3. Configure your keys in friday.py
+Open `friday.py` and fill in:
+```python
+PORCUPINE_KEY   = "your_porcupine_key"      # picovoice.ai (free tier)
+WEATHER_API_KEY = "your_openweather_key"    # openweathermap.org (free)
+WEATHER_CITY    = "your_city"
+MUSIC_DIR       = r"C:\path\to\your\music"
+```
+
+### 4. Run Friday
+```bash
+python friday.py
+```
+
+The desktop UI opens automatically. Your phone URL is printed in the terminal:
+```
+📱 Phone UI available at: http://192.168.x.x:5000
+```
+Open that in your **Android Chrome** browser (type `http://` explicitly).
+
+---
+
+## Phone Setup (ADB App Launching)
+
+To let Friday open apps on your Android phone:
+
+1. On your phone: **Settings → Developer Options → Enable USB Debugging**
+2. Connect phone via USB and run:
+```bash
+adb devices        # confirm phone is listed
+adb tcpip 5555     # switch to WiFi mode
+```
+3. Disconnect USB — ADB now works over WiFi automatically
+
+---
+
+## Voice Commands
+
+| Command | Action |
+|---|---|
+| `"play [song] on spotify"` | Play on Spotify |
+| `"play [song] on youtube"` | Play on YouTube Music |
+| `"next song"` / `"skip"` | Skip track |
+| `"volume up"` / `"louder"` | Increase volume |
+| `"stop music"` | Stop playback |
+| `"get weather"` | Weather for your city |
+| `"get weather in [city]"` | Weather anywhere |
+| `"timer for 10 minutes"` | Set a countdown timer |
+| `"remind me in 5 minutes"` | Set a reminder |
+| `"open youtube"` | Open website |
+| `"open chrome"` / `"open discord"` | Open desktop app |
+| `"search for [topic]"` | Google search |
+| `"what's playing"` | Current song info |
+| `"what did I set last"` | Recall memory |
+| `"Friday shutdown"` | Exit Friday |
+
+---
+
+## Changelog
+
+| Version | Changes |
+|---|---|
+| 1.0 | Basic voice recognition and TTS |
+| 2.0 | Gemini AI brain |
+| 3.0 | Custom visual interface |
+| 4.0 | Music from computer, YouTube, Spotify |
+| 4.1 | Wake word in music mode |
+| 5.0 | Smart platform selection |
+| 6.0 | Porcupine, Edge TTS, memory, weather, reminders, WhatsApp |
+| **7.0** | **Ollama local AI, phone bridge, image sharing, ADB app control** |
+
+---
+
+## Credits
+
+Built by [Nirupam](https://github.com/YOUR_USERNAME)
+Inspired by F.R.I.D.A.Y from the Marvel universe
