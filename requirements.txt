@@ -1,0 +1,12 @@
+speechrecognition
+pyaudio
+pygame
+edge-tts
+pvporcupine
+psutil
+pyautogui
+requests
+flask
+flask-cors
+python-telegram-bot
+groq
