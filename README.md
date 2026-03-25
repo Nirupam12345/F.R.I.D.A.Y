@@ -1,217 +1,136 @@
-# F.R.I.D.A.Y — Personal AI Assistant
-> *"Hello sir. Friday online. All systems nominal."*
+🤖 F.R.I.D.A.Y – AI Desktop Assistant
 
-A fully local, voice-controlled AI assistant inspired by Tony Stark's F.R.I.D.A.Y, built in Python. Powered by Groq AI (free, fast, no rate limits). Includes a phone interface accessible from your Android browser and Telegram bot control from anywhere in the world.
+Your personal Jarvis-like AI assistant built in Python
 
-![Version](https://img.shields.io/badge/version-7.0-gold)
-![Python](https://img.shields.io/badge/python-3.11-blue)
-![License](https://img.shields.io/badge/license-MIT-green)
+🚀 Overview
 
----
+F.R.I.D.A.Y (Female Replacement Intelligent Digital Assistant Youth) is a powerful AI assistant built by Nirupam.
+It combines voice recognition, automation, AI responses, and remote control into one system — just like Jarvis from Iron Man.
 
-## ✨ Features
+This assistant can:
 
-- 🎙️ **Wake word detection** — Say "Friday" to wake her up (Porcupine or Google fallback)
-- 🧠 **Groq AI brain** — Powered by llama3 70B, completely free and insanely fast
-- 🔄 **Ollama fallback** — Switches to local AI when internet is unavailable
-- 🗣️ **British male voice** — Edge TTS with en-GB-RyanNeural
-- 🎵 **Music control** — Spotify, YouTube Music, or local files
-- 📱 **Phone interface** — Control Friday from your Android browser on the same WiFi
-- 🌍 **Remote access** — Access Friday from anywhere via Ngrok
-- 📲 **ADB app launcher** — Open any app on your Android phone by voice
-- 🖼️ **Image sharing** — Send photos from phone to PC
-- 🤖 **Telegram bot** — Push notifications + two way PC control from anywhere
-- 🌤️ **Live weather** — OpenWeatherMap integration
-- ⏰ **Reminders & timers** — Voice-set countdowns
-- 🧠 **Memory system** — Remembers your last 100 conversations
-- 💬 **WhatsApp** — Open and send messages by voice
-- 🖥️ **Desktop UI** — Live conversation interface in the browser
-- 📊 **System monitoring** — CPU, RAM, disk stats in the UI
-- 🔒 **Voice authentication** — Only responds fully to your voice
-- 🌙 **Night mode** — Reminds you to sleep after 10pm
-- 📝 **Voice notes** — Save and read back notes by voice
-- 📧 **Gmail alerts** — Notifies you of important emails
-- 🎮 **Fun mode** — Jokes, roasts, easter eggs
-
----
-
-## 📁 Project Structure
-
-```
-Jarvis/
-│
-├── friday.py            # Main assistant — all logic lives here
-├── phone_ui.html        # Mobile web interface (open on phone browser)
-├── friday_ui.html       # Desktop UI (auto-opens on startup)
-├── friday_status.json   # Live state shared between Python and UI
-├── friday_memory.json   # Conversation memory (auto-generated)
-├── friday_prefs.json    # User preferences (auto-generated)
-├── requirements.txt     # All Python dependencies
-└── phone_uploads/       # Images sent from phone (auto-generated)
-```
-
----
-
-## 🛠️ Requirements
-
-### System
-- Windows 10/11
-- Python 3.11+
-- [Ollama](https://ollama.com) (optional, for offline fallback)
-- [Android Platform Tools](https://developer.android.com/tools/releases/platform-tools) (for ADB phone app launching)
-- [Ngrok](https://ngrok.com) (for remote access)
-
-### Python packages
-```bash
-pip install -r requirements.txt
-```
-
----
-
-## 🚀 Setup
-
-### 1. Clone the repo
-```bash
-git clone https://github.com/YOUR_USERNAME/friday-ai.git
+Talk with you 🎙️
+Control your PC 💻
+Automate tasks ⚡
+Connect to your phone 📱
+Even monitor security 🔐
+✨ Features
+🎤 Voice & AI
+Wake word detection ("Friday")
+Speech recognition & voice commands
+AI responses using Groq (LLaMA model)
+Multiple personality modes:
+Friday (default)
+Jarvis
+Stark
+Casual
+🔐 Security System
+Voice authentication
+Face recognition unlock
+Session timeout protection
+Intruder alerts
+Encrypted memory (optional modules)
+📱 Remote Control (Phone + Telegram)
+Control PC from your phone (Flask server)
+Telegram bot integration:
+Check system status
+Take screenshots
+Play music
+Lock PC
+Shutdown system
+🎵 Media & Entertainment
+Play music from:
+YouTube Music
+Spotify
+Local files
+Auto DJ (time-based music suggestions)
+Trivia game & fun features
+📊 Productivity Tools
+Notes system
+Reminders & timers
+Weekly reports
+Dashboard analytics
+Email drafting
+🌐 Smart Features
+Weather updates
+News briefing
+Stock & crypto tracking
+Flight tracking
+Screenshot analysis
+🖥️ System Control
+Open apps
+Take screenshots
+Monitor CPU, RAM, battery
+File explorer access
+ADB phone control (Android)
+⚙️ Advanced Features
+Heavy task mode (auto-generate files like):
+Code
+Essays
+Stories
+Modular system (plug-and-play features)
+Ngrok remote access
+Multi-threaded architecture
+🛠️ Tech Stack
+Python
+Flask (Web server)
+SpeechRecognition
+Edge TTS / Amazon Polly
+PyAutoGUI
+OpenCV (Face recognition)
+Porcupine (Wake word)
+Groq API (AI)
+Telegram Bot API
+📦 Installation
+1. Clone the repo
+git clone https://github.com/Nirupam12345/F.R.I.D.A.Y
 cd friday-ai
-```
-
-### 2. Create virtual environment
-```bash
-python -m venv venv
-venv\Scripts\activate
+2. Install dependencies
 pip install -r requirements.txt
-```
+3. Add your API keys
 
-### 3. Get your free API keys
+Edit the script and add:
 
-| Service | Where | What for |
-|---|---|---|
-| Groq | console.groq.com | AI brain (free) |
-| Picovoice | picovoice.ai | Wake word (free) |
-| OpenWeatherMap | openweathermap.org | Weather (free) |
-| Telegram BotFather | @BotFather on Telegram | Notifications (free) |
-
-### 4. Configure your keys in friday.py
-```python
-GROQ_API_KEY        = "your_groq_key"
-PORCUPINE_KEY       = "your_porcupine_key"
-WEATHER_API_KEY     = "your_openweather_key"
-WEATHER_CITY        = "your_city"
-MUSIC_DIR           = r"C:\path\to\your\music"
-TELEGRAM_TOKEN      = "your_telegram_bot_token"
-TELEGRAM_CHAT_ID    = "your_chat_id"
-TELEGRAM_PASSPHRASE = "your_secret_passphrase"
-```
-
-### 5. Run Friday
-```bash
+Groq API key
+Weather API key
+Telegram bot token
+(Optional) AWS Polly keys
+4. Run the assistant
 python friday.py
-```
+📱 Phone Access
+Runs on:
+http://localhost:5000
+Use ngrok for remote access
+🧩 Modular Features
 
-The desktop UI opens automatically. Your phone URL is printed in the terminal:
-```
-📱 Phone UI available at: http://192.168.x.x:5000
-```
-Open that in your **Android Chrome** browser (type `http://` explicitly).
+You can add extra features by dropping .py files into the project folder:
 
----
+Example modules:
 
-## 📱 Phone Setup (ADB App Launching)
+reminders.py
+news_briefing.py
+automation_routines.py
+personality_modes.py
+⚠️ Security Notice
+Never upload your API keys to GitHub
+Use .env or config files for secrets
+Rotate keys if exposed
+📸 Future Plans
+Full GUI interface
+Better mobile app
+Smarter AI memory
+Offline AI support
+Voice cloning
+👨‍💻 Creator
 
-To let Friday open apps on your Android phone:
+Nirupam
 
-1. On your phone: **Settings → Developer Options → Enable USB Debugging**
-2. Connect phone via USB and run:
-```bash
-adb devices
-adb tcpip 5555
-```
-3. Disconnect USB — ADB now works over WiFi automatically
+“Building my own Jarvis from scratch.”
 
----
+⭐ Support
 
-## 🌍 Remote Access (Ngrok)
+If you like this project:
 
-To access Friday from anywhere in the world:
-
-1. Sign up at ngrok.com
-2. Add your auth token:
-```bash
-ngrok config add-authtoken YOUR_TOKEN
-```
-3. Friday auto-starts Ngrok on launch
-4. Public URL is sent to your Telegram on startup
-
----
-
-## 🎙️ Voice Commands
-
-| Command | Action |
-|---|---|
-| `"play [song] on spotify"` | Play on Spotify |
-| `"play [song] on youtube"` | Play on YouTube Music |
-| `"next song"` / `"skip"` | Skip track |
-| `"volume up"` / `"louder"` | Increase volume |
-| `"stop music"` | Stop playback |
-| `"get weather"` | Weather for your city |
-| `"get weather in [city]"` | Weather anywhere |
-| `"timer for 10 minutes"` | Set a countdown timer |
-| `"remind me in 5 minutes"` | Set a reminder |
-| `"open youtube"` | Open website |
-| `"open chrome"` / `"open discord"` | Open desktop app |
-| `"search for [topic]"` | Google search |
-| `"take a note [text]"` | Save a voice note |
-| `"read my notes"` | Read back notes |
-| `"lock my pc"` | Lock computer |
-| `"shutdown pc"` | Shutdown computer |
-| `"what's playing"` | Current song info |
-| `"what did I set last"` | Recall memory |
-| `"tell me a joke"` | Friday tells a joke |
-| `"roast me"` | Friday roasts you 😂 |
-| `"Friday shutdown"` | Exit Friday |
-
----
-
-## 🤖 Telegram Bot Commands
-
-| Command | Action |
-|---|---|
-| `lock` | Lock your PC |
-| `shutdown` | Shutdown PC |
-| `screenshot` | Send PC screenshot |
-| `status` | CPU, RAM, battery info |
-| `play [song]` | Play music on PC |
-| `stop` | Stop music |
-| `note [text]` | Save a note |
-
----
-
-## 📊 Changelog
-
-| Version | Changes |
-|---|---|
-| 1.0 | Basic voice recognition and TTS |
-| 2.0 | Gemini AI brain |
-| 3.0 | Custom visual interface |
-| 4.0 | Music from computer, YouTube, Spotify |
-| 4.1 | Wake word in music mode |
-| 5.0 | Smart platform selection |
-| 6.0 | Porcupine, Edge TTS, memory, weather, reminders, WhatsApp |
-| 7.0 | Ollama local AI, phone bridge, image sharing, ADB app control |
-| **8.0** | **Groq AI, Telegram bot, remote access, voice auth, file browser, night mode, voice notes, dashboard** |
-
----
-
-## 🔮 Upcoming
-
-- 🗣️ ElevenLabs realistic voice (V8.1)
-- 🧠 Full personality overhaul (V8.1)
-- 📱 PWA phone app (V8.2)
-
----
-
-## Credits
-
-Built by [Nirupam](https://github.com/YOUR_USERNAME)
-Inspired by F.R.I.D.A.Y from the Marvel universe
+⭐ Star the repo
+🍴 Fork it
+🚀 Improve it
